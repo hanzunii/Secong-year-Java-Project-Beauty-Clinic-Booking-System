@@ -90,7 +90,7 @@
 
     <div class="login-container">
         <h2>Admin Login</h2>
-        <form action="input.jsp" method="GET">
+        <form onsubmit="return logininfo()">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -108,10 +108,36 @@
                 </label>
             </div>
 
-           <button type="submit" class="login-btn">Input Doctor's Information</button>
+            <button type="submit" class="login-btn">Input Doctor's Information</button>
 
         </form>
     </div>
+
+    <script type="text/javascript">
+        function logininfo() {
+            var name = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            
+            if (name === "" && pass === "") {
+                alert("Enter username and password.");
+                return false;
+            } else if (name === "") {
+                alert("Enter name");
+                return false;
+            } else if (pass === "") {
+                alert("Enter password");
+                return false;
+            } else if (name === "admin" && pass === "123123123") {
+                alert("Login Successful");
+                window.location.href = "input.jsp";  // Change this to your servlet URL
+                return false; // Prevent form submission for testing
+            } else {
+                alert("Login Failed");
+                window.location.href = "Adminlogin.html";  // Change this to your login page
+                return false;
+            }
+        }
+    </script>
 
 </body>
 </html>

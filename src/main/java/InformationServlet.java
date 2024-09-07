@@ -44,7 +44,7 @@ public class InformationServlet extends HttpServlet {
             	pw.println("<p id=\"txt\">Retrieve from Database</p>");
             	pw.println("<br>");
             	pw.println("<table id=\"info\">");
-            	pw.println("<tr><th>Hello</th><th>Hello</th><th>Hello</th><th>Hello</th><th>Hello</th><th>Hello</th><th>Hello</th></tr>");
+            	pw.println("<tr><th>Firstname</th><th>Lastname</th><th>Age</th><th>Gender</th><th>Phone</th><th>Email</th><th>Date</th></tr>");
                   PreparedStatement ps1=con.prepareStatement("select * from clinic order by date;" );
                   ResultSet rs= ps1.executeQuery();
                   while(rs.next()) {
